@@ -23,7 +23,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField TextNombre;
+	private JTextField TextNombreArchivo;
 	private JTextField textContenido;
 	private JTextField textFecha;
 	private JTextField textUsuario;
@@ -88,10 +88,10 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		lbNombre.setBounds(22, 126, 113, 14);
 		contentPane.add(lbNombre);
 		
-		TextNombre = new JTextField();
-		TextNombre.setBounds(142, 123, 168, 20);
-		contentPane.add(TextNombre);
-		TextNombre.setColumns(10);
+		TextNombreArchivo = new JTextField();
+		TextNombreArchivo.setBounds(142, 123, 168, 20);
+		contentPane.add(TextNombreArchivo);
+		TextNombreArchivo.setColumns(10);
 		
 		JLabel lbContenido = new JLabel("Contenido:");
 		lbContenido.setBounds(20, 151, 125, 25);
@@ -175,10 +175,18 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		contentPane.add(txtImpresiones);
 		
 		JButton btImprimir = new JButton("Imprimir archivo");
+		btImprimir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btImprimir.setBounds(448, 373, 229, 23);
 		contentPane.add(btImprimir);
 		
 		JButton btnMostrarImpresiones = new JButton("Mostrar archivos pendientes");
+		btnMostrarImpresiones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnMostrarImpresiones.setBounds(448, 415, 229, 23);
 		contentPane.add(btnMostrarImpresiones);
 		
