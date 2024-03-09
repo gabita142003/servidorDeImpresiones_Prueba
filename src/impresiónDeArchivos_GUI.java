@@ -158,6 +158,8 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				colaArchivos.add(NuevoArchivo);
 				
 				modelArchivo.addElement(NuevoArchivo.getNomArchivo());
+				
+				TextNombre.setText("");
 			
 				
 			}
