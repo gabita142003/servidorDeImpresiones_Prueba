@@ -98,10 +98,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		lbContenido.setBounds(20, 151, 125, 25);
 		contentPane.add(lbContenido);
 
-		textContenido = new JTextField();
-		textContenido.setBounds(22, 178, 288, 99);
-		textContenido.setColumns(10);
-		contentPane.add(textContenido);
+		
 
 		textAContenido = new JTextField();
 		textAContenido.setColumns(10);
@@ -117,9 +114,6 @@ public class impresiónDeArchivos_GUI extends JFrame {
 
 		textFecha.setBounds(142, 294, 168, 20);
 		textFecha.setColumns(10);
-
-		textFecha.setColumns(10);
-		textFecha.setBounds(133, 294, 177, 20);
 
 		contentPane.add(textFecha);
 		
@@ -169,7 +163,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				int Prioridad= Integer.parseInt(textPrioridad.getText());
 				
 				
-				archivo NuevoArchivo= new archivo(NombreArchivo, Contenido, FechaCreacion, Usuario, Tamaño, Formato);
+				archivo NuevoArchivo= new archivo(NombreArchivo, Contenido, FechaCreacion, Usuario, Tamaño, Formato, Prioridad);
 				
 				colaArchivos.add(NuevoArchivo);
 				

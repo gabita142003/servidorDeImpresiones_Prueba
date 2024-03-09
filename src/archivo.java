@@ -21,6 +21,9 @@ public archivo(String nomArchivo, String contenido, String nomUsuario, String fe
 	this.ordenPrioridad= ordenPrioridad; // 1- Urgente, 2-Pendiente , 3-No importante 
 	
 	}
+	
+	// TODO Auto-generated constructor stub
+
 	public String getNomArchivo() {
 	return nomArchivo;
 	}
