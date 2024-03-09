@@ -167,7 +167,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				
 				listArchivosP.setModel(modelArchivo);
 				
-				modelArchivo.addElement(NombreArchivo + "(creado el: " + FechaCreacion + ")" + "." + Formato);
+				modelArchivo.addElement(NombreArchivo + "("+ FechaCreacion + ")" + "." + Formato);
 			}
 		});
 		contentPane.add(btCrearArchivo);
