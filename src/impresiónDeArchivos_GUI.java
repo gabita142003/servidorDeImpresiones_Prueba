@@ -153,6 +153,8 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				String Tamaño= comboTamaño.getSelectedItem().toString();
 				String Formato= comboFormato.getSelectedItem().toString();
 				
+				archivo NuevoArchivo= new archivo(NombreArchivo, Contenido, FechaCreacion, Usuario, Tamaño, Formato);
+				
 				
 			
 				

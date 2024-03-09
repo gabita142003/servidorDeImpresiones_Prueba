@@ -7,8 +7,7 @@ private String fechaCrea;
 private String formato;
 private String tamaño;
 
-public archivo(String nomArchivo, String contenido, String nomUsuario, String fechaCrea, String formato, String tamaño,
-		archivo siguienteArchivo, archivo anteriorArchivo) {
+public archivo(String nomArchivo, String contenido, String nomUsuario, String fechaCrea, String formato, String tamaño) {
 	
 	this.nomArchivo = nomArchivo;
 	this.contenido = contenido;
