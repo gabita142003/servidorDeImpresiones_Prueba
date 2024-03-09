@@ -148,6 +148,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String NombreArchivo= TextNombre.getText();
 				String Contenido= textContenido.getText();
+				String FechaCreacion= textFecha.getText();
 				
 				
 			
