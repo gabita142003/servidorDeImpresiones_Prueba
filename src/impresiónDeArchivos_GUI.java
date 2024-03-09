@@ -147,6 +147,8 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		btCrearArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String NombreArchivo= TextNombre.getText();
+				String Contenido= textContenido.getText();
+				
 				
 			
 				
