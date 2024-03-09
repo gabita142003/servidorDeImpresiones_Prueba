@@ -163,7 +163,8 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				textContenido.setText("");
 				textFecha.setText("");
 				textUsuario.setText("");
-				modelArchivo.addElement("Tamaño: " + Tamaño);			
+				modelArchivo.addElement("Tamaño: " + Tamaño);	
+				modelArchivo.addElement("Formato: " + Formato);
 				
 			}
 		});
