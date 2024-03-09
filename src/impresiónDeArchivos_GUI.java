@@ -160,6 +160,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				modelArchivo.addElement(NuevoArchivo.getNomArchivo());
 				
 				TextNombre.setText("");
+				textContenido.setText("");
 			
 				
 			}
