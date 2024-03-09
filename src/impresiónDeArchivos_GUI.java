@@ -161,6 +161,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				
 				TextNombre.setText("");
 				textContenido.setText("");
+				textFecha.setText("");
 			
 				
 			}
