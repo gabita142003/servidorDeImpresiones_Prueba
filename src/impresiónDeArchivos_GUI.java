@@ -166,6 +166,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				modelArchivo.addElement("Tamaño: " + Tamaño);	
 				modelArchivo.addElement("Formato: " + Formato);
 				
+				listArchivosP.setModel(modelArchivo);
 			}
 		});
 		btCrearArchivo.setBounds(10, 457, 131, 23);
