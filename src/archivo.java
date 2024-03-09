@@ -1,14 +1,14 @@
 
 public class archivo implements Comparable<archivo> {
-private String nomArchivo;
-private String contenido;
-private String nomUsuario;
-private String fechaCrea;
-private String formato;
-private String tamaño;
+	private String nomArchivo;
+	private String contenido;
+	private String nomUsuario;
+	private String fechaCrea;
+	private String formato;
+	private String tamaño;
+	private int ordenPrioridad;
 
-public archivo(String nomArchivo, String contenido, String nomUsuario, String fechaCrea, String formato, String tamaño,
-		archivo siguienteArchivo, archivo anteriorArchivo) {
+public archivo(String nomArchivo, String contenido, String nomUsuario, String fechaCrea, String formato, String tamaño, int ordenPrioridad) {
 	
 	this.nomArchivo = nomArchivo;
 	this.contenido = contenido;
@@ -16,6 +16,7 @@ public archivo(String nomArchivo, String contenido, String nomUsuario, String fe
 	this.fechaCrea = fechaCrea;
 	this.formato = formato;
 	this.tamaño = tamaño;
+	this.ordenPrioridad= ordenPrioridad; // 1- Urgente, 2-Pendiente , 3-No importante 
 	
 	}
 	public String getNomArchivo() {
@@ -54,13 +55,19 @@ public archivo(String nomArchivo, String contenido, String nomUsuario, String fe
 	public void setTamaño(String tamaño) {
 	this.tamaño = tamaño;
 	}
+	public int getOrdenPrioridad() {
+		return ordenPrioridad;
+    }
+	public void  setOrdenPrioridad(int ordenPrioridad) {
+		this.ordenPrioridad=ordenPrioridad;
+    }
 	 @Override
 	 //para visualizar lo que se imprimira en los jtlist
 	    public String toString() {
 	        return nomArchivo + " - " + formato;
 	 }
 	 public int compareTo(archivo nuevoArchivo) {
-	        // comparar  archivos para mantener la cola ordenada
-	        return this.nomArchivo.compareTo(nuevoArchivo.getNomArchivo());
+		    // comparar archivos para mantener la cola ordenada
+		    return Integer.compare(this.ordenPrioridad, nuevoArchivo.getOrdenPrioridad());
 	 }
-}
+	}
