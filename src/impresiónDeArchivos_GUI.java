@@ -150,6 +150,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				String Contenido= textContenido.getText();
 				String FechaCreacion= textFecha.getText();
 				String Usuario= textUsuario.getText();
+				String Tamaño= comboTamaño.getSelectedItem().toString();
 				
 				
 			
