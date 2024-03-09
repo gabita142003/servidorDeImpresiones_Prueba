@@ -23,13 +23,12 @@ public class impresiónDeArchivos_GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField TextNombre;
-	private JTextField textContenido;
+	private JTextField textNombreArchivo;
+	private JTextField textAContenido;
 	private JTextField textFecha;
 	private JTextField textUsuario;
 	private JTextField txtArchivo;
 	private JTextField txtImpresiones;
-	private JTextField textField_2;
 	private JList listArchivosP;
 	private JList listImpresionesL;
     public DefaultComboBoxModel comboTamaño = new DefaultComboBoxModel(); //Combo de tamaño archivo
@@ -38,6 +37,8 @@ public class impresiónDeArchivos_GUI extends JFrame {
     public  DefaultListModel modelImpresiones = new DefaultListModel();     // Jtlist de la lista de impresiones 
    
     Queue<archivo> colaArchivos = new PriorityQueue<archivo>();
+    private JTextField textPrioridad;
+    private JTextField textField_2;
     
     /**
 	 * Launch the application.
@@ -58,9 +59,9 @@ public class impresiónDeArchivos_GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public impresiónDeArchivos_GUI() {
+    	public impresiónDeArchivos_GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 801, 530);
+		setBounds(100, 100, 801, 563);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -88,27 +89,38 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		lbNombre.setBounds(22, 126, 113, 14);
 		contentPane.add(lbNombre);
 		
-		TextNombre = new JTextField();
-		TextNombre.setBounds(142, 123, 168, 20);
-		contentPane.add(TextNombre);
-		TextNombre.setColumns(10);
+		textNombreArchivo = new JTextField();
+		textNombreArchivo.setBounds(142, 123, 168, 20);
+		contentPane.add(textNombreArchivo);
+		textNombreArchivo.setColumns(10);
 		
 		JLabel lbContenido = new JLabel("Contenido:");
 		lbContenido.setBounds(20, 151, 125, 25);
 		contentPane.add(lbContenido);
-		
+
 		textContenido = new JTextField();
 		textContenido.setBounds(22, 178, 288, 99);
 		textContenido.setColumns(10);
 		contentPane.add(textContenido);
+
+		textAContenido = new JTextField();
+		textAContenido.setColumns(10);
+		textAContenido.setBounds(22, 178, 288, 99);
+		contentPane.add(textAContenido);
+
 		
 		JLabel lbFecha = new JLabel("Fecha de creación:");
-		lbFecha.setBounds(10, 297, 135, 14);
+		lbFecha.setBounds(10, 297, 113, 14);
 		contentPane.add(lbFecha);
 		
 		textFecha = new JTextField();
+
 		textFecha.setBounds(142, 294, 168, 20);
 		textFecha.setColumns(10);
+
+		textFecha.setColumns(10);
+		textFecha.setBounds(133, 294, 177, 20);
+
 		contentPane.add(textFecha);
 		
 		JLabel lblNewLabel_2 = new JLabel("Formato de impresión");
@@ -116,12 +128,12 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 16));
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lbUsuario = new JLabel("Usuario");
-		lbUsuario.setBounds(10, 333, 146, 14);
+		JLabel lbUsuario = new JLabel("Usuario:");
+		lbUsuario.setBounds(10, 333, 48, 14);
 		contentPane.add(lbUsuario);
 		
 		textUsuario = new JTextField();
-		textUsuario.setBounds(48, 330, 262, 20);
+		textUsuario.setBounds(72, 330, 238, 20);
 		contentPane.add(textUsuario);
 		textUsuario.setColumns(10);
 		
@@ -144,15 +156,18 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		contentPane.add(comboFormato);
 		
 		JButton btCrearArchivo = new JButton("Crear archivo");
+
 		btCrearArchivo.setBounds(10, 457, 131, 23);
 		btCrearArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String NombreArchivo= TextNombre.getText();
-				String Contenido= textContenido.getText();
+				String NombreArchivo= textNombreArchivo.getText();
+				String Contenido= textAContenido.getText();
 				String FechaCreacion= textFecha.getText();
 				String Usuario= textUsuario.getText();
 				String Tamaño= comboTamaño.getSelectedItem().toString();
 				String Formato= comboFormato.getSelectedItem().toString();
+				int Prioridad= Integer.parseInt(textPrioridad.getText());
+				
 				
 				archivo NuevoArchivo= new archivo(NombreArchivo, Contenido, FechaCreacion, Usuario, Tamaño, Formato);
 				
@@ -160,8 +175,8 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				
 				
 				
-				TextNombre.setText("");
-				textContenido.setText("");
+				textNombreArchivo.setText("");
+				textAContenido.setText("");
 				textFecha.setText("");
 				textUsuario.setText("");
 				
@@ -170,6 +185,9 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				modelArchivo.addElement(NombreArchivo + "("+ FechaCreacion + ")" + "." + Formato);
 			}
 		});
+
+		btCrearArchivo.setBounds(93, 490, 131, 23);
+
 		contentPane.add(btCrearArchivo);
 		
 		listArchivosP = new JList();
@@ -202,10 +220,24 @@ public class impresiónDeArchivos_GUI extends JFrame {
 		btnMostrarImpresiones.setBounds(448, 415, 229, 23);
 		contentPane.add(btnMostrarImpresiones);
 		
+		JLabel lblNewLabel_3_1_1 = new JLabel("Prioridad:");
+		lblNewLabel_3_1_1.setBounds(10, 461, 81, 14);
+		contentPane.add(lblNewLabel_3_1_1);
+		
+		textPrioridad = new JTextField();
+		textPrioridad.setColumns(10);
+		textPrioridad.setBounds(101, 459, 209, 20);
+		contentPane.add(textPrioridad);
+		
 		textField_2 = new JTextField();
+
 		textField_2.setBounds(0, 70, 785, 421);
 		textField_2.setBackground(new Color(250, 240, 207));
 		contentPane.add(textField_2);
+
 		textField_2.setColumns(10);
+		textField_2.setBackground(new Color(250, 240, 207));
+		textField_2.setBounds(0, 65, 785, 459);
+		contentPane.add(textField_2);
 	}
 }
