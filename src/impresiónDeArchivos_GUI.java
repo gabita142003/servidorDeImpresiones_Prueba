@@ -155,7 +155,7 @@ public class impresiónDeArchivos_GUI extends JFrame {
 				
 				archivo NuevoArchivo= new archivo(NombreArchivo, Contenido, FechaCreacion, Usuario, Tamaño, Formato);
 				
-				
+				colaArchivos.add(NuevoArchivo);
 			
 				
 			}
